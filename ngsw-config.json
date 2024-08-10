@@ -1,0 +1,77 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/icons/**",
+          "/assets/audio/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    },
+    {
+      "name": "icons",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/svg/layers-outline.svg",
+          "/svg/navigate-outline.svg",
+          "/svg/navigate.svg",
+          "/svg/compass.svg",
+          "/svg/notifications.svg",
+          "/svg/close.svg"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "layers",
+      "version": 1,
+      "cacheConfig": {
+        "maxAge": "90d",
+        "maxSize": 40,
+        "strategy": "performance"
+      },
+      "urls": [
+        "/assets/gpx/**",
+        "/assets/styles/**"
+      ]
+    },
+    {
+      "name": "tiles",
+      "version": 1,
+      "cacheConfig": {
+        "maxAge": "120d",
+        "maxSize": 8000,
+        "strategy": "performance"
+      },
+      "urls": [
+        "fonts.(googleapis|gstatic).com",
+        "*.openstreetmap.*",
+        "*.geoapify.com",
+        "*.mapbox.com",
+        "wxs.ign.fr",
+        "api.maptiler.com"
+      ]
+    }
+  ]
+}
